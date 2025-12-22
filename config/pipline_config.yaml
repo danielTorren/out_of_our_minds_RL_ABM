@@ -1,0 +1,35 @@
+# config/pipeline_config.yaml
+# Path configurations
+paths:
+  base_dir: "outputs"
+  bertopic_output: "outputs/bertopic_outputs"  # Output from BERTopic
+  correlation_matrices: "outputs/correlation_matrices"  # Output from correlation processing
+  abm_results: "outputs/abm_results"  # Output from ABM simulation
+
+# BERTopic configuration
+bertopic:
+  # Add BERTopic-specific configuration here
+  pass
+
+# Correlation matrix configuration
+correlation:
+  window_size: 5       # Number of time steps in each window
+  min_periods: 3       # Minimum number of periods required for correlation
+  method: "pearson"    # Correlation method: 'pearson', 'kendall', or 'spearman'
+
+# ABM configuration
+abm:
+  output_dir: "outputs/abm_results"  # Should match paths.abm_results
+  config_file: "config/abm_config.yaml"  # Path to ABM-specific config
+  # ABM parameters can be specified here or in the separate ABM config file
+  N_AGENTS: 100
+  M_TOPICS: 5
+  SIMULATION_STEPS: 50
+  K_NEIGHBORS: 6
+  FOCAL_PERCENTAGE: 0.2
+  REPORT_INTERVAL: 3
+  LAMBDA_WEIGHT: 0.5
+  LEARNING_RATE: 0.001
+  SOCIAL_NOISE: 0.1
+  INTERNAL_NOISE: 0.05
+  GENERATE_REPORTS: true
